@@ -45,9 +45,11 @@ public class FibArrayGenerator {
                 boolean isEven2 = o2.getLowestSetBit() != 0;
                 // getLowestSetBit() returns the position of first 1’s bit from the rightmost side in this BigInteger.
                 if ((isEven1 && isEven2) || (!isEven1 && !isEven2)) {
+                    //comply descending order
                     return o2.compareTo(o1);
                 }
                 else if (isEven1 && !isEven2) {
+                    // Even number goes before odd number
                     return -1;
                 }
                 else {

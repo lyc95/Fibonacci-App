@@ -21,7 +21,6 @@ public class FibonacciResource {
 
     @GET
     @Produces("application/json")
-    /*@Path("/{size}")*/
     @Consumes(MediaType.APPLICATION_JSON)
     public FibonacciArray getFibBySize(UserRequest userRequest) {
         int size = userRequest.getElements();
@@ -32,4 +31,17 @@ public class FibonacciResource {
             return null;
         }
     }
+    @GET
+    @Produces("application/json")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/{size}")
+    public FibonacciArray getFibBySize(@PathParam("size") int size) {
+        if(size > 0 && size<= 100) {
+            return fibonacciRepository.getFibonacciArray(size);
+        }
+        else {
+            return null;
+        }
+    }
+
 }
